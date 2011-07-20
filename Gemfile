@@ -5,7 +5,7 @@ gem 'rails', '3.0.7'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'mysql2'
+gem 'mysql2', '~> 0.2.8'
 
 gem 'shopify_api', :git=>"git://github.com/Shopify/shopify_api.git"
 gem 'shopify_app'
