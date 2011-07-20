@@ -8,6 +8,11 @@ Bundler.require(:default, Rails.env) if defined?(Bundler)
 
 module Setsale
   class Application < Rails::Application
+    
+    # Shopify API connection credentials:
+    config.shopify.api_key = "abae9e207757ef1cfbd9eb78eded2008"
+    config.shopify.secret = "91e4b2f48557cb7393951beb73c3a524"
+    
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
