@@ -7,6 +7,9 @@ gem 'rails', '3.0.7'
 
 gem 'mysql2'
 
+gem 'shopify_api', :git=>"git://github.com/Shopify/shopify_api.git"
+gem 'shopify_app'
+
 # Use unicorn as the web server
 # gem 'unicorn'
 
