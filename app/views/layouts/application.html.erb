@@ -33,18 +33,23 @@
       
       <div id="nav" role="navigation" class="grid6">
         <ul id="tabs">
-          <li>
-            <%= link_to "Calendar", "#" %>
-          </li>
-          <li>
-            <%= link_to "Statistics", "#" %>
-          </li>
-          <li>
-            <% if @current_user %>
+          <% if @current_user %>
+            <li>
+              <%= link_to "Calendar", "#" %>
+            </li>
+            <li>
+              <%= link_to "Statistics", "#" %>
+            </li>
+            <li>
               <%= link_to "Sign Out", "#" %>
-            <% else %>
-              <%= link_to "Sign in / Install", "#" %>
-            <% end %>
+            </li>
+          <% else %>
+            <li>
+              <%= link_to "Sign In / Install", "#" %>
+            </li>
+          <% end %>  
+          <li>
+            <%= link_to "Support", "#" %>
           </li>
         </ul>
       </div>
