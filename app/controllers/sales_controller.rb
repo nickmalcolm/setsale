@@ -1,4 +1,7 @@
 class SalesController < ApplicationController
+  
+  before_filter :shopify_session
+  
   def index
     @sales = Sale.all
   end

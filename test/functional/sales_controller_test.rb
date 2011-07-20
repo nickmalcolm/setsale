@@ -3,10 +3,21 @@ require 'mocha'
 
 class SalesControllerTest < ActionController::TestCase
   
-  def setup
-    @sale = Sale.create!
+  test "redirect when logged out" do
+    get :index
+    assert_redirected_to login_path
   end
   
+end
+
+class LoggedInSalesControllerTest < ActionController::TestCase
+  tests SalesController
+  
+  def setup
+    @sale = Sale.create!
+    login_as Shop.create(:domain => "bob.com")
+  end
+
   def test_index
     get :index
     assert_template 'index'

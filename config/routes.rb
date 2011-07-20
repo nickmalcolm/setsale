@@ -2,7 +2,7 @@ Setsale::Application.routes.draw do
   
   resources :sales
 
-  root :to                   => 'sales#index'
+  root :to                   => 'home#index'
   
   match 'home'                => 'home#index'
 
