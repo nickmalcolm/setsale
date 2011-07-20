@@ -1,7 +1,10 @@
 Setsale::Application.routes.draw do
+  
   resources :sales
 
   root :to                   => 'sales#index'
+  
+  match 'home'                => 'home#index'
 
   match 'login'              => 'login#index'
 

@@ -1,13 +1,19 @@
 require 'test_helper'
+require 'mocha'
 
 class SalesControllerTest < ActionController::TestCase
+  
+  def setup
+    @sale = Sale.create!
+  end
+  
   def test_index
     get :index
     assert_template 'index'
   end
 
   def test_show
-    get :show, :id => Sale.first
+    get :show, :id => @sale.to_param
     assert_template 'show'
   end
 
@@ -16,39 +22,26 @@ class SalesControllerTest < ActionController::TestCase
     assert_template 'new'
   end
 
-  def test_create_invalid
-    Sale.any_instance.stubs(:valid?).returns(false)
-    post :create
-    assert_template 'new'
-  end
-
   def test_create_valid
-    Sale.any_instance.stubs(:valid?).returns(true)
-    post :create
+    post :create, :sale => @sale.attributes
     assert_redirected_to sale_url(assigns(:sale))
   end
 
   def test_edit
-    get :edit, :id => Sale.first
-    assert_template 'edit'
-  end
-
-  def test_update_invalid
-    Sale.any_instance.stubs(:valid?).returns(false)
-    put :update, :id => Sale.first
+    get :edit, :id => @sale.to_param
     assert_template 'edit'
   end
 
   def test_update_valid
-    Sale.any_instance.stubs(:valid?).returns(true)
-    put :update, :id => Sale.first
+    put :update, :id => @sale.to_param
     assert_redirected_to sale_url(assigns(:sale))
   end
 
   def test_destroy
-    sale = Sale.first
-    delete :destroy, :id => sale
-    assert_redirected_to sales_url
-    assert !Sale.exists?(sale.id)
+    assert_difference "Sale.count", -1 do
+      delete :destroy, :id => @sale
+      assert_redirected_to sales_url
+    end
+    assert !Sale.exists?(@sale)
   end
 end
