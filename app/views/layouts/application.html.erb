@@ -26,17 +26,27 @@
   <header>
     <div class="container12 clearfix">
       <div class="title grid3">
-        <%= image_tag "logo.svg", :style=>"height:50px;", :alt=>"setsale" %>
+        <%= content_tag :a, :href => root_url do %>
+          <%= image_tag "logo.svg", :style=>"height:50px;", :alt=>"setsale" %>
+        <% end %>
       </div>
       
       <div id="nav" role="navigation" class="grid6">
-        <%= link_to "Calendar", "#" %>
-        <%= link_to "Statistics", "#" %>
-        <% if @current_user %>
-          <%= link_to "Sign Out", "#" %>
-        <% else %>
-          <%= link_to "Sign in / Install", "#" %>
-        <% end %>
+        <ul id="tabs">
+          <li>
+            <%= link_to "Calendar", "#" %>
+          </li>
+          <li>
+            <%= link_to "Statistics", "#" %>
+          </li>
+          <li>
+            <% if @current_user %>
+              <%= link_to "Sign Out", "#" %>
+            <% else %>
+              <%= link_to "Sign in / Install", "#" %>
+            <% end %>
+          </li>
+        </ul>
       </div>
     </div>
   </header>

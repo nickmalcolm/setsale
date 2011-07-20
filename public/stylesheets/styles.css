@@ -26,12 +26,30 @@ header #nav{
   text-align: right;
 }
 
-header #nav a{
-  font-size: 14px;
+ul#tabs { 
+  float: right; 
+}
+ul#tabs li {
+  list-style: none;
+  float:left; 
+  background:none;
+}
+
+ul#tabs>li>a {
+  text-decoration:none;
+  font-weight:bold;
+  font-size: 18px;
   text-shadow: 1px 1px 1px #444;
   filter: dropshadow(color=#444, offx=1, offy=1);
   color: #fff;
-  text-decoration: none;
-  line-height: 50px;
+  float:left;
+  height:50px;
+  line-height:50px;
   padding: 0 20px;
+}
+    
+ul#tabs li a:hover { 
+  color: #fff;
+  background: #60A2B7;
+  background: rgba(130,130,130, 0.5);
 }
