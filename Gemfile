@@ -32,3 +32,4 @@ gem 'shopify_app'
 group :development, :test do
   gem 'nifty-generators'
 end
+gem "mocha", :group => :test
