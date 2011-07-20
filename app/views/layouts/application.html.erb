@@ -25,8 +25,18 @@
   
   <header>
     <div class="container12 clearfix">
-      <div class="title grid12">
+      <div class="title grid3">
         <%= image_tag "logo.svg", :style=>"height:50px;", :alt=>"setsale" %>
+      </div>
+      
+      <div id="nav" role="navigation" class="grid6">
+        <%= link_to "Calendar", "#" %>
+        <%= link_to "Statistics", "#" %>
+        <% if @current_user %>
+          <%= link_to "Sign Out", "#" %>
+        <% else %>
+          <%= link_to "Sign in / Install", "#" %>
+        <% end %>
       </div>
     </div>
   </header>

@@ -1,3 +1,7 @@
+html{
+  font-family: 'Lucida Grande', 'Lucida Sans Unicode',sans-serif;
+}
+
 header{
   background: #87e0fd;
   background: -moz-linear-gradient(top, #87e0fd 0%, #53cbf1 40%, #05abe0 100%);
@@ -15,4 +19,19 @@ header{
 header .title h1{
   font-size: 280%;
   color: #fff;
+}
+
+header #nav{
+  float: right;
+  text-align: right;
+}
+
+header #nav a{
+  font-size: 14px;
+  text-shadow: 1px 1px 1px #444;
+  filter: dropshadow(color=#444, offx=1, offy=1);
+  color: #fff;
+  text-decoration: none;
+  line-height: 50px;
+  padding: 0 20px;
 }
