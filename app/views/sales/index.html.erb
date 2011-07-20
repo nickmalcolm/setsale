@@ -1,0 +1,17 @@
+<% title "Sales" %>
+
+<table>
+  <tr>
+    <th>Name</th>
+  </tr>
+  <% for sale in @sales %>
+    <tr>
+      <td><%= sale.name %></td>
+      <td><%= link_to "Show", sale %></td>
+      <td><%= link_to "Edit", edit_sale_path(sale) %></td>
+      <td><%= link_to "Destroy", sale, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Sale", new_sale_path %></p>

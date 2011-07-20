@@ -1,0 +1,12 @@
+<% title "Sale" %>
+
+<p>
+  <strong>Name:</strong>
+  <%= @sale.name %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_sale_path(@sale) %> |
+  <%= link_to "Destroy", @sale, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", sales_path %>
+</p>

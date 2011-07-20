@@ -1,4 +1,6 @@
 Setsale::Application.routes.draw do
+  resources :sales
+
   root :to                   => 'home#index'
 
   match 'welcome'            => 'home#welcome'
