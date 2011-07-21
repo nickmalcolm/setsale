@@ -1,16 +1,18 @@
 html{
   font-family: 'Lucida Grande', 'Lucida Sans Unicode',sans-serif;
+  background: #e9e9df;
 }
 
 header{
-  background: #87e0fd;
-  background: -moz-linear-gradient(top, #87e0fd 0%, #53cbf1 40%, #05abe0 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#87e0fd), color-stop(40%,#53cbf1), color-stop(100%,#05abe0));
-  background: -webkit-linear-gradient(top, #87e0fd 0%,#53cbf1 40%,#05abe0 100%);
-  background: -o-linear-gradient(top, #87e0fd 0%,#53cbf1 40%,#05abe0 100%);
-  background: -ms-linear-gradient(top, #87e0fd 0%,#53cbf1 40%,#05abe0 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#87e0fd', endColorstr='#05abe0',GradientType=0 );
-  background: linear-gradient(top, #87e0fd 0%,#53cbf1 40%,#05abe0 100%);
+  background: #232A2B;
+  background: #232a2b; /* Old browsers */
+  background: -moz-linear-gradient(top, #232a2b 0%, #2c3435 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#232a2b), color-stop(100%,#2c3435)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #232a2b 0%,#2c3435 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #232a2b 0%,#2c3435 100%); /* Opera11.10+ */
+  background: -ms-linear-gradient(top, #232a2b 0%,#2c3435 100%); /* IE10+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#232a2b', endColorstr='#2c3435',GradientType=0 ); /* IE6-9 */
+  background: linear-gradient(top, #232a2b 0%,#2c3435 100%); /* W3C */
   
   height: 50px;
   width: 100%;
@@ -52,4 +54,50 @@ ul#tabs li a:hover {
   color: #fff;
   background: #60A2B7;
   background: rgba(130,130,130, 0.5);
+}
+
+.box_round{
+     -moz-border-radius: 12px; 
+  -webkit-border-radius: 12px; 
+          border-radius: 12px; 
+        
+        
+  -moz-background-clip: padding; -webkit-background-clip: padding-box; background-clip: padding-box; 
+}
+
+.box_shadow{
+     -moz-box-shadow: 1px 1px 5px #444; 
+  -webkit-box-shadow: 1px 1px 5px #444; 
+          box-shadow: 1px 1px 5px #444; 
+}
+
+.border{
+  
+}
+
+.box {
+  margin-bottom: 20px;
+}
+
+.first{
+  margin-left: 0px;
+}
+
+.last{
+  margin-right: 0px;
+}
+
+.lone{
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+#main{
+  padding-top: 20px;
+}
+
+h1{
+  font-size: 200%;
+  font-weight: 800;
+  margin: 15px 10px;
 }

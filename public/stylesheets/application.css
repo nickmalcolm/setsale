@@ -16,12 +16,6 @@
 	font-weight: normal;
 }
 
-.box {
-  padding: 0;
-  background:#FAFAFA url('../images/box-bg2.gif') repeat-x scroll left top;
-  border:1px solid #CCCCCC;
-}
-
 .wrapper {
   border:1px solid #FFFFFF;
   padding: 10px;
