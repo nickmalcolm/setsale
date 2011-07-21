@@ -25,12 +25,20 @@ h3{
 
 a {
   text-decoration: underline;
+  color: #245B6B;
+}
+
+a:hover{
+  color: #0096C2;
 }
 
 a, input[type='submit']{
   cursor: pointer;
 }
 
+td{
+  padding: 5px;
+}
 
 header{
   background: #232A2B;
@@ -82,8 +90,7 @@ ul#tabs>li>a {
     
 ul#tabs li a:hover { 
   color: #fff;
-  background: #60A2B7;
-  background: rgba(130,130,130, 0.5);
+  background: #0096C2;
 }
 
 .box_round{
