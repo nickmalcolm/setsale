@@ -27,4 +27,8 @@ class SaleTest < ActiveSupport::TestCase
     assert @blank.valid?
   end
   
+  test "factory works" do
+    assert Factory(:sale).valid?
+  end
+  
 end
