@@ -14,7 +14,7 @@ class LoggedInSalesControllerTest < ActionController::TestCase
   tests SalesController
   
   def setup
-    @sale = Sale.create!
+    @sale = Factory(:sale)
     login_as Factory(:shop)
   end
 

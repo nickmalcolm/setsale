@@ -1,8 +1,9 @@
-<%= form_for @sale do |f| %>
+<%= semantic_form_for @sale do |f| %>
   <%= f.error_messages %>
-  <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </p>
-  <p><%= f.submit %></p>
+  <%= f.inputs do %>
+    <%= f.inputs :name %>
+    <%= f.inputs :starts_at %>
+    <%= f.inputs :ends_at %>
+  <% end %>
+  <%= f.buttons %>
 <% end %>
