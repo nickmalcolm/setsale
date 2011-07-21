@@ -15,7 +15,7 @@ class LoggedInSalesControllerTest < ActionController::TestCase
   
   def setup
     @sale = Sale.create!
-    login_as Shop.create(:domain => "bob.com")
+    login_as Factory(:shop)
   end
 
   def test_index
