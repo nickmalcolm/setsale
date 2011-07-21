@@ -6,6 +6,16 @@
 </p>
 
 <p>
+  <strong>Starts at:</strong>
+  <%= pretty_date @sale.starts_at %>
+</p>
+
+<p>
+  <strong>Ends at:</strong>
+  <%= pretty_date @sale.ends_at %>
+</p>
+
+<p>
   <%= link_to "Edit", edit_sale_path(@sale) %> |
   <%= link_to "Destroy", @sale, :confirm => 'Are you sure?', :method => :delete %> |
   <%= link_to "View All", sales_path %>

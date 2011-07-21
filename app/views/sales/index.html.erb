@@ -3,10 +3,14 @@
 <table>
   <tr>
     <th>Name</th>
+    <th>Starts at</th>
+    <th>Ends at</th>
   </tr>
   <% for sale in @sales %>
     <tr>
       <td><%= sale.name %></td>
+      <td><%= pretty_date sale.starts_at %></td>
+      <td><%= pretty_date sale.ends_at %></td>
       <td><%= link_to "Show", sale %></td>
       <td><%= link_to "Edit", edit_sale_path(sale) %></td>
       <td><%= link_to "Destroy", sale, :confirm => 'Are you sure?', :method => :delete %></td>
