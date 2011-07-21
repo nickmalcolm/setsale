@@ -6,12 +6,24 @@ class SaleTest < ActiveSupport::TestCase
     @blank = Sale.new
   end
   
-  test "blank sale invalid" do
+  test "sale invalid when blank" do
     assert @blank.invalid?
   end
   
-  test "sale needs start date" do
+  test "sale invalid with just start date" do
     @blank.starts_at = Time.now
+    assert @blank.invalid?
+  end
+  
+  test "sale invalid with just end date" do
+    @blank.ends_at = Time.now
+    assert @blank.invalid?
+  end
+  
+  test "sale needs a start date and end date" do
+    @blank.starts_at = Time.now
+    @blank.ends_at = Time.now
+    
     assert @blank.valid?
   end
   
