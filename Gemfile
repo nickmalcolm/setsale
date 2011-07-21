@@ -31,5 +31,6 @@ gem 'shopify_app'
 # and rake tasks are available in development mode:
 group :development, :test do
   gem 'nifty-generators'
+  gem 'factory_girl_rails'
 end
 gem "mocha", :group => :test
