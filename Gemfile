@@ -10,6 +10,8 @@ gem 'mysql2', '~> 0.2.8'
 gem 'shopify_api', :git=>"git://github.com/Shopify/shopify_api.git"
 gem 'shopify_app'
 
+gem 'formtastic'
+
 # Use unicorn as the web server
 # gem 'unicorn'
 
