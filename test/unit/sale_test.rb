@@ -6,8 +6,8 @@ class SaleTest < ActiveSupport::TestCase
     @blank = Sale.new
   end
   
-  test "can create sale" do
-    assert @blank.valid?
+  test "blank sale invalid" do
+    assert @blank.invalid?
   end
   
   test "sale needs start date" do
