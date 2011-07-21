@@ -1,7 +1,6 @@
 #flasherrors, #flashnotices {
-  background: #faf7ea;
   border-bottom: 1px solid #e8e6d9;
-	padding: 10px;
+	padding-bottom: 20px;
   font-weight: bold;
   text-align:center;
 }

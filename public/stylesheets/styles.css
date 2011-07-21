@@ -3,6 +3,20 @@ html{
   background: #e9e9df;
 }
 
+#main{
+  padding-top: 20px;
+}
+
+h1{
+  font-size: 200%;
+  font-weight: 800;
+  margin: 10px 10px;
+}
+
+h1, h2, h3, p, form, ul{
+  margin: 10px;
+}
+
 header{
   background: #232A2B;
   background: #232a2b; /* Old browsers */
@@ -30,6 +44,7 @@ header #nav{
 
 ul#tabs { 
   float: right; 
+  margin: 0px;
 }
 ul#tabs li {
   list-style: none;
@@ -90,14 +105,4 @@ ul#tabs li a:hover {
 .lone{
   margin-left: 0px;
   margin-right: 0px;
-}
-
-#main{
-  padding-top: 20px;
-}
-
-h1{
-  font-size: 200%;
-  font-weight: 800;
-  margin: 15px 10px;
 }
