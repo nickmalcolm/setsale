@@ -31,17 +31,14 @@
         <% end %>
       </div>
       
-      <div id="nav" role="navigation" class="grid6">
+      <div id="nav" role="navigation" class="grid9">
         <ul id="tabs">
           <% if current_shop %>
             <li>
-              <%= link_to "Calendar", "#" %>
+              <%= link_to "Sales", sales_path %>
             </li>
             <li>
-              <%= link_to "Statistics", "#" %>
-            </li>
-            <li>
-              <%= link_to "Sign Out", "#" %>
+              <%= link_to "Stats", "#" %>
             </li>
           <% else %>
             <li>
