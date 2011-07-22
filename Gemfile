@@ -8,7 +8,7 @@ gem 'rails', '3.0.7'
 gem 'mysql2', '~> 0.2.8'
 
 gem 'shopify_api', :git=>"git://github.com/Shopify/shopify_api.git"
-gem "shopify-api-limits"
+#gem "shopify-api-limits"
 gem 'shopify_app'
 
 gem 'formtastic'
