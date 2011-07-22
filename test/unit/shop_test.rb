@@ -19,4 +19,32 @@ class ShopTest < ActiveSupport::TestCase
     assert Factory(:shop).valid?
   end
   
+  test "can have sales" do
+    s = Factory(:shop)
+    s1 = Factory(:sale, :shop => s)
+    
+    assert s.sales.include? s1
+  end
+  
+  test "can't see other's sales" do
+    s = Factory(:shop)
+    s1 = Factory(:sale, :shop => Factory(:shop))
+    
+    assert !(s.sales.include? s1)
+  end
+  
+  test "can have products" do
+    s = Factory(:shop)
+    p1 = Factory(:product, :shop => s)
+    
+    assert s.products.include? p1
+  end
+  
+  test "can't see other's products" do
+    s = Factory(:shop)
+    p1 = Factory(:product, :shop => Factory(:shop))
+    
+    assert !(s.products.include? p1)
+  end
+  
 end

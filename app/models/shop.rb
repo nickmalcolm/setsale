@@ -2,6 +2,9 @@ class Shop < ActiveRecord::Base
   
   validates_presence_of :domain
   
+  has_many :sales
+  has_many :products
+  
   def site
     "https://"+ShopifyAPI::Session.api_key+":"+api_password+"@"+domain+"/admin"
   end
