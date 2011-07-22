@@ -1,10 +1,11 @@
 <%= semantic_form_for @sale do |f| %>
   <%= f.error_messages %>
   <%= f.inputs do %>
-    <%= f.inputs :name %>
-    <%= f.inputs :starts_at %>
-    <%= f.inputs :ends_at %>
-    <%= f.inputs :amount %>
+    <%= f.input :name %>
+    <%= f.input :starts_at %>
+    <%= f.input :ends_at %>
+    <%= f.input :amount %>
+    <%= f.input :amount_type, :as => :select, :collection => [["$", Sale::AMOUNT_TYPES[0]], ["%", Sale::AMOUNT_TYPES[1]]], :include_blank => false %>
   <% end %>
   <%= f.buttons %>
 <% end %>
