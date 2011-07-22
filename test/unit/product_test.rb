@@ -2,6 +2,21 @@ require 'test_helper'
 
 class ProductTest < ActiveSupport::TestCase
   
+  test "factory works" do
+    assert Factory(:product).valid?
+  end
+  
+  test "product invalid without shop" do
+    assert Factory.build(:product, :shop => nil).invalid?
+  end
+  
+  test "product has shop" do
+    shop = Factory(:shop)
+    product = Factory(:product, :shop => shop)
+    
+    assert_equal shop, product.shop
+  end
+  
   test "import from shopify json works" do
     attributes = {
       "product_type"=> "Cult Products",
@@ -20,7 +35,7 @@ class ProductTest < ActiveSupport::TestCase
       "options"=> []
     }
     
-    product = Product.new
+    product = Product.new(:shop => Factory(:shop))
     product.attributes = attributes
     
     assert_equal "IPod Nano - 8GB", product.title
@@ -29,6 +44,9 @@ class ProductTest < ActiveSupport::TestCase
     assert_equal "ipod-nano", product.handle
     assert_equal "Cult Products", product.product_type
     assert_equal Time.parse("2007-12-31T19:00:00-05:00").utc, product.published_at
+    
+    assert product.save!
+    assert product.valid?
   end
     
   

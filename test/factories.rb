@@ -8,3 +8,7 @@ Factory.define :sale do |s|
   s.amount_type "fixed"
   s.association :shop
 end
+
+Factory.define :product do |p|
+  p.association :shop
+end
