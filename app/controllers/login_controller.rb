@@ -27,9 +27,22 @@ class LoginController < ApplicationController
       session[:shopify] = shopify_session
       flash[:notice] = "Logged in to shopify store."
       
-      shop = Shop.find_or_create_by_domain(shopify_session.url)
-      shop.api_password = Digest::MD5.hexdigest(ShopifyAPI::Session.secret + params[:t])
-      shop.save!
+      shop = Shop.find_by_domain(shopify_session.url)
+      
+      digest = Digest::MD5.hexdigest(ShopifyAPI::Session.secret + params[:t])
+      
+      #A new Shop has signed up
+      if shop.nil?
+        shop = Shop.new
+        shop.domain = shopify_session.url
+        shop.api_password = digest
+        
+        shop.init_from_shopify #Save built in
+      else
+        #Update the api password just for good measure
+        shop.api_password = digest
+        shop.save!
+      end
       
       redirect_to return_address
       session[:return_to] = nil
