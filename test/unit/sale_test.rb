@@ -20,9 +20,15 @@ class SaleTest < ActiveSupport::TestCase
     assert @blank.invalid?
   end
   
-  test "sale needs a start date and end date" do
+  test "sale invalid with just discount amount" do
+    @blank.amount = 4.95
+    assert @blank.invalid?
+  end
+  
+  test "sale needs a start date, end date, and discount amount" do
     @blank.starts_at = Time.now
     @blank.ends_at = Time.now
+    @blank.amount = 4.95
     
     assert @blank.valid?
   end
