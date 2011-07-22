@@ -16,6 +16,7 @@ class SalesController < ApplicationController
 
   def create
     @sale = Sale.new(params[:sale])
+    @sale.shop = current_shop
     if @sale.save
       redirect_to @sale, :notice => "Successfully created sale."
     else
