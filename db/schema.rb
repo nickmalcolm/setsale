@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110722111902) do
+ActiveRecord::Schema.define(:version => 20110722121832) do
 
   create_table "products", :force => true do |t|
     t.string   "handle"
@@ -39,6 +39,8 @@ ActiveRecord::Schema.define(:version => 20110722111902) do
     t.string   "api_password"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "currency",                   :default => "USD"
+    t.string   "money_with_currency_format", :default => "${{amount}} USD"
   end
 
 end
