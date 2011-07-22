@@ -110,6 +110,45 @@
          in2="SourceGraphic"
          id="feComposite3171-7" />
     </filter>
+    <filter
+       color-interpolation-filters="sRGB"
+       inkscape:menu-tooltip="Adds a colorizable drop shadow inside"
+       inkscape:menu="Shadows and Glows"
+       inkscape:label="Inner Shadow"
+       id="filter3159-3">
+      <feGaussianBlur
+         result="result8"
+         stdDeviation="20"
+         id="feGaussianBlur3003" />
+      <feOffset
+         result="result11"
+         dy="15"
+         dx="15"
+         id="feOffset3005" />
+      <feComposite
+         operator="in"
+         in="SourceGraphic"
+         result="result6"
+         in2="result11"
+         id="feComposite3007" />
+      <feFlood
+         flood-color="rgb(0,0,0)"
+         flood-opacity="1"
+         in="result6"
+         result="result10"
+         id="feFlood3009" />
+      <feBlend
+         result="result12"
+         in="result6"
+         mode="normal"
+         in2="result10"
+         id="feBlend3011" />
+      <feComposite
+         operator="in"
+         result="result2"
+         in2="SourceGraphic"
+         id="feComposite3013" />
+    </filter>
   </defs>
   <sodipodi:namedview
      pagecolor="#A8CB17"
@@ -124,13 +163,14 @@
      inkscape:window-height="680"
      id="namedview3041"
      showgrid="false"
-     inkscape:zoom="1"
-     inkscape:cx="657.57887"
-     inkscape:cy="109.31192"
-     inkscape:window-x="166"
-     inkscape:window-y="76"
+     inkscape:zoom="1.4142136"
+     inkscape:cx="820.15676"
+     inkscape:cy="156.22143"
+     inkscape:window-x="137"
+     inkscape:window-y="64"
      inkscape:window-maximized="0"
-     inkscape:current-layer="svg3039" />
+     inkscape:current-layer="svg3039"
+     inkscape:object-nodes="true" />
   <path
      id="path3125"
      style="fill:#fefefa;filter:url(#filter3159);fill-opacity:1"
@@ -139,10 +179,11 @@
   <g
      inkscape:groupmode="layer"
      id="layer1"
-     inkscape:label="Layer" />
+     inkscape:label="Layer"
+     style="display:inline" />
   <g
      id="g3107"
-     transform="matrix(0.43124131,-0.01485889,0.01485889,0.43124131,761.90075,1.5114746)"
+     transform="matrix(0.34437476,-0.04856119,0.04878046,0.34746229,761.1479,9.76785)"
      inkscape:export-filename="/Users/nickmalcolm/workspace/setsale/public/images/logo.png"
      inkscape:export-xdpi="90"
      inkscape:export-ydpi="90">
@@ -172,4 +213,22 @@
          style="fill:#1ff000;fill-opacity:0;stroke:#000000;stroke-width:5;stroke-miterlimit:4;stroke-opacity:0;stroke-dasharray:none" />
     </g>
   </g>
+  <path
+     sodipodi:type="star"
+     style="fill:#fefefa;fill-opacity:1;stroke:#000000;stroke-width:5;stroke-miterlimit:4;stroke-opacity:0;stroke-dasharray:none;filter:url(#filter3159-3)"
+     id="path3023"
+     sodipodi:sides="3"
+     sodipodi:cx="796"
+     sodipodi:cy="164"
+     sodipodi:r1="122.54387"
+     sodipodi:r2="61.271935"
+     sodipodi:arg1="0.52359878"
+     sodipodi:arg2="1.5707963"
+     inkscape:flatsided="false"
+     inkscape:rounded="0"
+     inkscape:randomized="0"
+     d="m 902.1261,225.27193 -106.1261,0 -106.1261,0 53.06305,-91.9079 L 796,41.456131 849.06305,133.36403 z"
+     inkscape:transform-center-y="-7.300287"
+     transform="matrix(0.70553899,0,-0.56761903,0.2382913,412.2305,121.47191)"
+     inkscape:transform-center-x="20.048484" />
 </svg>
