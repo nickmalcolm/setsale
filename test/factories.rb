@@ -11,4 +11,5 @@ end
 
 Factory.define :product do |p|
   p.association :shop
+  p.shopify_id 123456
 end
