@@ -4,6 +4,8 @@ class Sale < ActiveRecord::Base
   
   belongs_to :shop
   
+  has_many :products
+  
   validates_presence_of :shop
   validates_presence_of :starts_at
   validates_presence_of :ends_at
