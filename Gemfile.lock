@@ -9,6 +9,7 @@ GIT
 GEM
   remote: http://rubygems.org/
   specs:
+    SystemTimer (1.2.1)
     abstract (1.0.0)
     actionmailer (3.0.7)
       actionpack (= 3.0.7)
@@ -105,6 +106,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  SystemTimer
   factory_girl_rails
   formtastic
   mocha
