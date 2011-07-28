@@ -11,6 +11,8 @@ gem 'shopify_api', :git=>"git://github.com/Shopify/shopify_api.git"
 #gem "shopify-api-limits"
 gem 'shopify_app'
 
+gem 'resque'
+
 gem 'formtastic'
 
 # Use unicorn as the web server
