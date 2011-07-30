@@ -13,3 +13,9 @@ Factory.define :product do |p|
   p.association :shop
   p.shopify_id 123456
 end
+
+Factory.define :discount do |d|
+  d.association :shop
+  d.association :sale
+  d.association :product
+end

@@ -10,7 +10,25 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110724014719) do
+ActiveRecord::Schema.define(:version => 20110730112422) do
+
+  create_table "discounted_products", :force => true do |t|
+    t.integer  "shop_id"
+    t.integer  "product_id"
+    t.integer  "shopify_id"
+    t.decimal  "original_price",   :precision => 16, :scale => 2
+    t.decimal  "discounted_price", :precision => 16, :scale => 2
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "discounts", :force => true do |t|
+    t.integer  "product_id"
+    t.integer  "shop_id"
+    t.integer  "sale_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "products", :force => true do |t|
     t.string   "handle"
