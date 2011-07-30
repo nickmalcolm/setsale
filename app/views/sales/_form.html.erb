@@ -6,6 +6,9 @@
     <%= f.input :ends_at %>
     <%= f.input :amount %>
     <%= f.input :amount_type, :as => :select, :collection => [["$", Sale::AMOUNT_TYPES[0]], ["%", Sale::AMOUNT_TYPES[1]]], :include_blank => false %>
+    <div style="display:none">
+      <%= f.input :products, :as => :check_boxes, :include_blank => false %>
+    </div>
   <% end %>
   <%= f.buttons %>
 <% end %>
@@ -21,11 +24,11 @@
 
 <div id="products" class="grid12 lone">
   <% @products.each_with_index do |product, i| %>
-    <%= div_for product, :class=> "grid4 textured_box #{"first" if i%3 == 0} #{"last" if (i+1)%3 == 0} #{"selected" if (@selected_products.include? product.id)}" do %>
+    <%= div_for product, :class=> "grid4 textured_box #{"first" if i%3 == 0} #{"last" if (i+1)%3 == 0} #{"selected" if (@selected_products.include? product.id)}", "data-id"=>product.id do %>
       <div class="table">
-      <div class="cell">
-        <%= image_tag "http://static.shopify.com/s/files/1/0083/9432/products/calendar_thumb.jpg", :class => "thumb" %> 
-      </div>
+        <div class="cell">
+          <%= image_tag "http://static.shopify.com/s/files/1/0083/9432/products/calendar_thumb.jpg", :class => "thumb" %> 
+        </div>
       </div>
         <%= content_tag :h3, product.title %>
     <% end %>
@@ -34,7 +37,14 @@
 
 <% content_for(:jquery) do %>
   $(".product").click(function(){
+    //(Un)check the hidden input
+    var id = $(this).attr("data-id");
+    $("#sale_product_ids_"+id).prop("checked", function( i, val ) {
+      return !val;
+    });
     
+    
+    //Style and text stuff
     var s = parseInt($("#product_counter .plural_count").html());
     
     $(this).hasClass("selected") ? s -= 1 : s += 1;

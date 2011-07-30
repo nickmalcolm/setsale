@@ -13,6 +13,8 @@ class Sale < ActiveRecord::Base
   validates_numericality_of :amount
   validates_inclusion_of :amount_type, :in => AMOUNT_TYPES
   
-  attr_accessible :starts_at, :ends_at, :amount, :amount_type
+  attr_accessible :name, :starts_at, :ends_at, :amount, :amount_type, :product_ids
+  
+  accepts_nested_attributes_for :products
   
 end

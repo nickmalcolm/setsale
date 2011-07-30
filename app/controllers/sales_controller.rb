@@ -34,6 +34,12 @@ class SalesController < ApplicationController
 
   def update
     @sale = Sale.find(params[:id])
+    product_ids = (params[:sale][:product_ids] - [""]).map(&:to_i)
+    params[:sale][:product_ids] = nil
+    product_ids.each {|pid| params.merge!(:discounts => [{:shop_id => current_shop.id, :product_id => pid, :sale_id => @sale.id}])}
+    
+    p params
+    
     if @sale.update_attributes(params[:sale])
       redirect_to @sale, :notice  => "Successfully updated sale."
     else
