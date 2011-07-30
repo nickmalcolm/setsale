@@ -1,5 +1,5 @@
 html{
-  font-family: 'Helvetica', 'Lucida Grande', 'Lucida Sans Unicode',sans-serif;
+  font-family: sans-serif;
   background: #fffef4;
   color: #444;
   background-position: left top;
@@ -11,7 +11,7 @@ html{
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: helvetica,arial,sans-serif;
+  font-family: arial,sans-serif;
   font-weight:bold;
   text-shadow: 1px 1px 1px #bbb;
   filter: dropshadow(color=#bbb, offx=1, offy=1);
@@ -166,10 +166,8 @@ ul#tabs li a:hover {
   background: linear-gradient(top, #dfed9a 0%,#94c613 100%); /* W3C */
 }
 
-.selected.textured_box h3{
-  color: #fff;
-  text-shadow: 1px 1px 1px #555;
-  filter: dropshadow(color=#555, offx=1, offy=1);
+.textured_box:hover h3{
+  color: #40B3DF;
 }
 
 .grid4.product{
