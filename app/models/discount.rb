@@ -8,4 +8,6 @@ class Discount < ActiveRecord::Base
   validates_presence_of :product
   validates_presence_of :sale
   
+  attr_accessible :shop, :product, :sale
+  
 end
