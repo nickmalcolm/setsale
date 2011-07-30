@@ -204,3 +204,10 @@ img.thumb{
   width: 50px;
   vertical-align: middle;
 }
+
+.select_all{
+  line-height: 35px;
+  margin-left: 10px;
+  padding-left: 10px;
+  float: right;
+}
