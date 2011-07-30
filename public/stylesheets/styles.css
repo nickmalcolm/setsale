@@ -148,10 +148,6 @@ ul#tabs li a:hover {
    text-shadow: 0 1px #fff;
 }
 
-.textured_box:hover{
-  background: #fcfff4;
-}
-
 .textured_box h3{
    color: #17649A;
    text-shadow: 1px 1px 1px #fff;
@@ -168,10 +164,6 @@ ul#tabs li a:hover {
   background: -ms-linear-gradient(top, #dfed9a 0%,#94c613 100%); /* IE10+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dfed9a', endColorstr='#94c613',GradientType=0 ); /* IE6-9 */
   background: linear-gradient(top, #dfed9a 0%,#94c613 100%); /* W3C */
-}
-
-.selected.textured_box:hover{
-  background: #dfed9a;
 }
 
 .selected.textured_box h3{
