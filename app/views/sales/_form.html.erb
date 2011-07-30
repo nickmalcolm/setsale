@@ -21,3 +21,9 @@
     <% end %>
   <% end %>
 </div>
+
+<% content_for(:jquery) do %>
+  $(".product").click(function(){
+    $(this).toggleClass("selected");
+  })
+<% end %>

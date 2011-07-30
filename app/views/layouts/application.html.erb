@@ -79,6 +79,12 @@
     <script>DD_belatedPNG.fix("img, .png_bg");</script>
   <![endif]-->
 
+  <script>
+  $(document).ready(
+    function(){
+      <%= content_for(:jquery) %>
+    });
+  </script>
 
 
   <script>
