@@ -14,6 +14,7 @@ class SalesController < ApplicationController
 
   def new
     @sale = Sale.new
+    @selected_products = []
   end
 
   def create
@@ -28,6 +29,7 @@ class SalesController < ApplicationController
 
   def edit
     @sale = Sale.find(params[:id])
+    @selected_products = @sale.discounts.map(&:product_id)
   end
 
   def update
