@@ -14,8 +14,9 @@ class LoggedInSalesControllerTest < ActionController::TestCase
   tests SalesController
   
   def setup
-    @sale = Factory(:sale)
-    login_as Factory(:shop)
+    @shop = Factory(:shop)
+    @sale = Factory(:sale, :shop => @shop)
+    login_as @shop
   end
 
   def test_index
@@ -54,5 +55,12 @@ class LoggedInSalesControllerTest < ActionController::TestCase
       assert_redirected_to sales_url
     end
     assert !Sale.exists?(@sale)
+  end
+  
+  test "can see products in form" do
+    5.times {Factory(:product, :shop => @shop)}
+    get :edit, :id => @sale.to_param
+    assert_select "#products"
+    assert_select ".product", 5
   end
 end

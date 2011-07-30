@@ -2,6 +2,8 @@ class SalesController < ApplicationController
   
   around_filter :shopify_session
   
+  before_filter :get_products, :only => [:new, :edit]
+  
   def index
     @sales = Sale.all
   end
@@ -42,4 +44,11 @@ class SalesController < ApplicationController
     @sale.destroy
     redirect_to sales_url, :notice => "Successfully destroyed sale."
   end
+  
+  private
+  
+  def get_products
+    @products = current_shop.products
+  end
+  
 end

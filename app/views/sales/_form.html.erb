@@ -9,3 +9,10 @@
   <% end %>
   <%= f.buttons %>
 <% end %>
+<div id="products">
+  <% for product in @products do %>
+    <%= div_for product, :class=> "grid3" do %>
+      <%= content_tag :h3, product.title %>
+    <% end %>
+  <% end %>
+</div>
