@@ -12,9 +12,15 @@ class Discount < ActiveRecord::Base
   
   before_validation :set_shop
   
+  validate :check_shop_equal
+  
   private
-  def set_shop
-    self.shop_id = self.product.shop_id
-  end
+    def set_shop
+      self.shop_id = self.sale.shop_id
+    end
+    
+    def check_shop_equal
+      self.errors.add :product, " and sale have different shops" unless product.shop_id.eql? sale.shop_id
+    end
   
 end

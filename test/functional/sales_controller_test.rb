@@ -34,9 +34,21 @@ class LoggedInSalesControllerTest < ActionController::TestCase
     assert_template 'new'
   end
 
-  def test_create_valid
+  def test_create_valid_without_products
     post :create, :sale => @sale.attributes
     assert_redirected_to sale_url(assigns(:sale))
+  end
+  
+  test "create valid with products" do
+    p1 = Factory(:product, :shop => @shop)
+    assert_difference "Discount.count" do
+      put :create, :sale => @sale.attributes.merge(:product_ids => [p1.id])
+    end
+    
+    d = Discount.last
+    assert_equal @shop, d.shop
+    assert_equal Sale.last, d.sale
+    assert_equal p1, d.product
   end
 
   def test_edit
@@ -63,4 +75,25 @@ class LoggedInSalesControllerTest < ActionController::TestCase
     assert_select "#products"
     assert_select ".product", 5
   end
+  
+  test "can create discounts through form" do
+    p1 = Factory(:product, :shop => @shop)
+    assert_difference "Discount.count" do
+      put :update, :id => @sale.to_param, :sale => @sale.attributes.merge(:product_ids => [p1.id])
+    end
+    
+    d = Discount.last
+    assert_equal @shop, d.shop
+    assert_equal @sale, d.sale
+    assert_equal p1, d.product
+  end
+  
+  test "cant have discount with different shop's products" do
+    p1 = Factory(:product, :shop => Factory(:shop))
+    
+    assert_raises ActiveRecord::RecordInvalid do
+      put :update, :id => @sale.to_param, :sale => @sale.attributes.merge(:product_ids => [p1.id])
+    end
+  end
+  
 end

@@ -35,7 +35,7 @@ class SalesController < ApplicationController
   def update
     @sale = Sale.find(params[:id])
     #Make sure we delete all product discounts if none are passed
-    params[:sale][:product_ids] = [] if params[:sale][:product_ids].nil?
+    params[:sale][:product_ids] = [] if (params[:sale] && params[:sale][:product_ids].nil?)
     if @sale.update_attributes(params[:sale])
       redirect_to @sale, :notice  => "Successfully updated sale."
     else
