@@ -96,4 +96,14 @@ class LoggedInSalesControllerTest < ActionController::TestCase
     end
   end
   
+  test "can remove discounts" do
+    @sale.products << Factory(:product, :shop => @shop)
+    assert_difference "Discount.count", -1 do
+      put :update, :id => @sale.to_param, :sale => @sale.attributes.merge(:product_ids => [])
+    end
+    
+    assert @sale.discounts.empty?
+    assert @sale.products.empty?
+  end
+  
 end
