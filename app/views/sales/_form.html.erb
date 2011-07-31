@@ -9,31 +9,32 @@
     <div style="display:none">
       <%= f.input :products %>
     </div>
+    <div class="grid12 lone no_margin">
+      <h3 style="float:left" id="product_counter">
+        <%= pluralize_with_tags @selected_products.count, "Product" %> on Sale
+      </h3>
+      <p class="select_all">
+        <%= link_to "Select All", "#", :id=>"select_all_products" %>&nbsp;&nbsp;|&nbsp;&nbsp;<%= link_to "Deselect All", "#", :id=>"deselect_all_products" %>
+      </p>
+    </div>
+
+    <div id="products" class="grid12 right_margin lone">
+      <% @products.each_with_index do |product, i| %>
+        <%= div_for product, :class=> "grid4 textured_box box_shadow #{"selected" if (@selected_products.include? product.id)}", "data-id"=>product.id do %>
+          <div class="table">
+            <div class="cell">
+              <%= image_tag "http://static.shopify.com/s/files/1/0083/9432/products/calendar_thumb.jpg", :class => "thumb" %> 
+            </div>
+          </div>
+            <%= content_tag :h3, product.title %>
+        <% end %>
+      <% end %>
+    </div>
   <% end %>
   <%= f.buttons %>
 <% end %>
 
-<div class="grid12 lone no_margin">
-  <h3 style="float:left" id="product_counter">
-    <%= pluralize_with_tags @selected_products.count, "Product" %> on Sale
-  </h3>
-  <p class="select_all">
-    <%= link_to "Select All", "#", :id=>"select_all_products" %>&nbsp;&nbsp;|&nbsp;&nbsp;<%= link_to "Deselect All", "#", :id=>"deselect_all_products" %>
-  </p>
-</div>
 
-<div id="products" class="grid12 right_margin lone">
-  <% @products.each_with_index do |product, i| %>
-    <%= div_for product, :class=> "grid4 textured_box #{"selected" if (@selected_products.include? product.id)}", "data-id"=>product.id do %>
-      <div class="table">
-        <div class="cell">
-          <%= image_tag "http://static.shopify.com/s/files/1/0083/9432/products/calendar_thumb.jpg", :class => "thumb" %> 
-        </div>
-      </div>
-        <%= content_tag :h3, product.title %>
-    <% end %>
-  <% end %>
-</div>
 
 <% content_for(:jquery) do %>
   $(".product").click(function(){
