@@ -132,6 +132,16 @@ ul#tabs li a:hover {
   margin-right: 0px;
 }
 
+.grid12.right_margin{
+  width: 960px;
+}
+
+.right_margin .grid4{
+  float: left;
+  margin-left: 0px;
+  margin-right: 20px;
+}
+
 .textured_box{
    border: 1px solid #e9e9ce;
    background-color: #fcfff4;

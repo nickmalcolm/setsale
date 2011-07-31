@@ -13,7 +13,7 @@
   <%= f.buttons %>
 <% end %>
 
-<div class="grid12 lone">
+<div class="grid12 lone no_margin">
   <h3 style="float:left" id="product_counter">
     <%= pluralize_with_tags @selected_products.count, "Product" %> on Sale
   </h3>
@@ -22,9 +22,9 @@
   </p>
 </div>
 
-<div id="products" class="grid12 lone">
+<div id="products" class="grid12 right_margin lone">
   <% @products.each_with_index do |product, i| %>
-    <%= div_for product, :class=> "grid4 textured_box #{"first" if i%3 == 0} #{"last" if (i+1)%3 == 0} #{"selected" if (@selected_products.include? product.id)}", "data-id"=>product.id do %>
+    <%= div_for product, :class=> "grid4 textured_box #{"selected" if (@selected_products.include? product.id)}", "data-id"=>product.id do %>
       <div class="table">
         <div class="cell">
           <%= image_tag "http://static.shopify.com/s/files/1/0083/9432/products/calendar_thumb.jpg", :class => "thumb" %> 
