@@ -36,13 +36,9 @@ class LoginController < ApplicationController
         shop = Shop.new
         shop.domain = shopify_session.url
         shop.api_password = digest
-        
-        shop.init_from_shopify #Save built in
-      else
-        #Update the api password just for good measure
-        shop.api_password = digest
-        shop.save!
-      end
+      end  
+      
+      shop.update_from_shopify
       
       redirect_to return_address
       session[:return_to] = nil

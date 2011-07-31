@@ -17,12 +17,13 @@ class Shop < ActiveRecord::Base
     ShopifyAPI::Base.site = self.site
   end
   
-  def init_from_shopify
+  def update_from_shopify
     shopify_api_connection
     shopify_shop = ShopifyAPI::Shop.current
     
     self.currency = shopify_shop.currency
     self.money_with_currency_format = shopify_shop.money_with_currency_format
+    self.timezone = shopify_shop.timezone
     save!
   end
   
