@@ -1,23 +1,13 @@
 <% title "Sales" %>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Starts at</th>
-    <th>Ends at</th>
-    <th>Amount</th>
-  </tr>
-  <% for sale in @sales %>
-    <tr>
-      <td><%= sale.name %></td>
-      <td><%= pretty_date sale.starts_at %></td>
-      <td><%= pretty_date sale.ends_at %></td>
-      <td><%= number_to_currency sale.amount %></td>
-      <td><%= link_to "Show", sale %></td>
-      <td><%= link_to "Edit", edit_sale_path(sale) %></td>
-      <td><%= link_to "Destroy", sale, :confirm => 'Are you sure?', :method => :delete %></td>
-    </tr>
-  <% end %>
-</table>
+<% for sale in @sales %>
+  <div class="grid12 lone">
+    <%= content_tag :h3, (link_to sale.name, sale) %>
+  </div>
+  <div class="grid12 lone">
+    <%= content_tag :strong, (pretty_amount sale)  %>
+    Starts at <%= content_tag :strong, (pretty_date sale.starts_at) %>, ends at <%= content_tag :strong, (pretty_date sale.ends_at) %>
+  </div>
+<% end %>
 
 <p><%= link_to "New Sale", new_sale_path %></p>
