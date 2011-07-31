@@ -4,7 +4,7 @@ module SalesHelper
     if sale.amount_type.eql? "fixed"
       amount_as_currency(sale.amount, sale.shop)
     else
-      number_to_percentage(sale.amount)
+      number_to_percentage(sale.amount, :precision => 2)
     end
   end
   
