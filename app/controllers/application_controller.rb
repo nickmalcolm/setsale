@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
       begin
         # session[:shopify] set in LoginController#finalize
         ShopifyAPI::Base.site = session[:shopify].site
+        Time.zone = current_shop.timezone[12..-1]
         yield
       ensure 
         ShopifyAPI::Base.site = nil
