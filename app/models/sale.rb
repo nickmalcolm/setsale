@@ -15,6 +15,6 @@ class Sale < ActiveRecord::Base
   
   attr_accessible :name, :starts_at, :ends_at, :amount, :amount_type, :product_ids
   
-  accepts_nested_attributes_for :products
+  accepts_nested_attributes_for :products, :discounts
   
 end

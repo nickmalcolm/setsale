@@ -7,7 +7,7 @@
     <%= f.input :amount %>
     <%= f.input :amount_type, :as => :select, :collection => [["$", Sale::AMOUNT_TYPES[0]], ["%", Sale::AMOUNT_TYPES[1]]], :include_blank => false %>
     <div style="display:none">
-      <%= f.input :products, :as => :check_boxes, :include_blank => false %>
+      <%= f.input :products %>
     </div>
   <% end %>
   <%= f.buttons %>
@@ -39,9 +39,12 @@
   $(".product").click(function(){
     //(Un)check the hidden input
     var id = $(this).attr("data-id");
-    $("#sale_product_ids_"+id).prop("checked", function( i, val ) {
-      return !val;
-    });
+    var field = $("#sale_product_ids option[value=\""+id+"\"]");
+    if (field.prop("selected")){ 
+      field.removeAttr("selected");
+    }else{
+      field.attr("selected", "selected");
+    }
     
     
     //Style and text stuff
@@ -57,12 +60,20 @@
   });
   
   $("#select_all_products").click(function(){
+    //Select all
+    $("#sale_product_ids option").each(function(){$(this).attr("selected", "selected")})
+    
+    //Words
     $(".product").addClass("selected");
     $("#product_counter .plural_count").html($(".product").size());
     $("#product_counter .plural_s").html("s");
     return false;
   });
   $("#deselect_all_products").click(function(){
+    //Unselect all
+    $("#sale_product_ids option").each(function(){$(this).removeAttr("selected");})
+    
+    //Words
     $(".product").removeClass("selected");
     $("#product_counter .plural_count").html(0);
     $("#product_counter .plural_s").html("s");
