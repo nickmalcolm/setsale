@@ -13,7 +13,7 @@ class SalesController < ApplicationController
   end
 
   def new
-    @sale = Sale.new
+    @sale = Sale.new(:starts_at => Time.zone.now, :ends_at => Time.zone.now)
     @selected_products = []
   end
 
